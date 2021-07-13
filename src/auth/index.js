@@ -183,9 +183,9 @@ export default class Auth {
 
         try {
             let accessToken = await this.cache.getAccessToken(input.userId, scope)
-            if (accessToken && !accessToken.isExpired()) {
-                return accessToken
-            }
+            // if (accessToken && !accessToken.isExpired()) {
+            //     return accessToken
+            // }
             let refreshToken = await this.cache.getRefreshToken(input.userId)
             if (refreshToken) {
                 const tokenResponse = await this.refreshTokens({refreshToken: refreshToken.refreshToken, scope: scope})
